@@ -25,6 +25,7 @@ public class Steps {
         caps.setCapability("browserName", "chrome");
         caps.setCapability("e34:token" , "19705d15-03b8-4f"); //babbage / adoring edison
 
+        //replace with the URL of the Selenium Box Hub in your company
         driver = new RemoteWebDriver(new URL("https://vm-106.element34.net/wd/hub"), caps);
         driver.get("http://www.bmw-brilliance.cn/cn/en/index.html");
         Assert.assertEquals("BMW Brilliance", driver.getTitle());
