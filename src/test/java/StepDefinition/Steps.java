@@ -22,7 +22,8 @@ public class Steps {
 
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("browserName", "chrome");
-        caps.setCapability("l_testName", "BMW Brilliance Cucumber example");
+        caps.setCapability("e34:video", true);
+        caps.setCapability("e34:l_testName", "BMW Brilliance Cucumber example");
 
         caps.setCapability("e34:token" , "19705d15-03b8-4f");
         driver = new RemoteWebDriver(new URL("https://vm-106.element34.net/wd/hub"), caps);
@@ -32,16 +33,15 @@ public class Steps {
     }
 
     @When("^Click on the Careers link$")
-    public void enter_the_Username_and_Password() throws Throwable
+    public void click_on_careers_link() throws Throwable
     {
         driver.findElement(By.linkText("Careers")).click();
 
     }
 
     @Then("^Verify page title$")
-    public void Reset_the_credential() throws Throwable
+    public void verify_page_title() throws Throwable
     {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
         Assert.assertEquals("BMW Brilliance：Working in BMW Brilliance", driver.getTitle());
     }
 
