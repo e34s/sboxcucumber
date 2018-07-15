@@ -7,7 +7,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.URL;
@@ -23,10 +22,11 @@ public class Steps {
 
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("browserName", "chrome");
-        caps.setCapability("e34:token" , "19705d15-03b8-4f"); //babbage / adoring edison
+        caps.setCapability("l_testName", "BMW Brilliance Cucumber example");
 
-        //replace with the URL of the Selenium Box Hub in your company
+        caps.setCapability("e34:token" , "19705d15-03b8-4f");
         driver = new RemoteWebDriver(new URL("https://vm-106.element34.net/wd/hub"), caps);
+
         driver.get("http://www.bmw-brilliance.cn/cn/en/index.html");
         Assert.assertEquals("BMW Brilliance", driver.getTitle());
     }
